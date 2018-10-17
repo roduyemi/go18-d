@@ -45,10 +45,14 @@ app.post('/', (req, res) => {
 
   if (text === 'quotes') {
     res.send(_.sample(quotes)['quote']);
+  } else if (text === 'gifs') {
+    res.send(_.sample(gifs)['gif']);
   } else {
     slackResponse.text = _.sample(videos)+"&t=1m";
     res.send(slackResponse);
   }
+
+
 
   // axios.get(`https://api.giphy.com/v1/gifs/search?api_key=tnHYF9zBR9Kuv2QWa6n5o2mFS1xMjA64&q=cats&limit=1&offset=0&rating=G&lang=en`)
   // .then(response => {
