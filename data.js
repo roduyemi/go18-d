@@ -24,7 +24,7 @@ const womenPioneers = [
     "Glenda Schroeder",
     "Lixia Zhang"
   ]
-  
+
   const quotes = [
     {
       quote: "Make the most of yourself by fanning the tiny, inner sparks of possibility into flames of achievement.",
@@ -79,7 +79,15 @@ const womenPioneers = [
     'https://www.youtube.com/watch?v=FEeTLopLkEo',
     'https://www.youtube.com/watch?v=_waBFUg_oT8'
   ]
-  
+
+  const gifs = [
+    'https://giphy.com/gifs/advice-inspiring-X747o35tP1xxS',
+    'https://giphy.com/gifs/gina-rodriguez-hayley-atwell-janethevirgin-cWuqguqwbWVfq',
+    'https://giphy.com/gifs/birthday-serena-williams-u3xrWx0ni9EZy',
+    'https://giphy.com/gifs/rights-uO1rCvwqGJVYs',
+    'https://giphy.com/gifs/rights-uO1rCvwqGJVYs'
+  ]
+
   module.exports = {
     womenPioneers,
     quotes,
