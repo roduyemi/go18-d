@@ -4,7 +4,8 @@
   "description": "feeling like an imposter? get inspired!",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
