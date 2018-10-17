@@ -68,16 +68,16 @@ const womenPioneers = [
     }
   ]
   const videos = [
-    'http://www.youtube.com/watch?v=18uDutylDa4',
-    'http://www.youtube.com/watch?v=OUmFdTHTD8M',
-    'http://www.youtube.com/watch?v=XX30i6nC7ro',
-    'http://www.youtube.com/watch?v=QijH4UAqGD8',
-    'http://www.youtube.com/watch?v=MmfikLimeQ8',
-    'http://www.youtube.com/watch?v=Lp7E973zozc',
-    'http://www.youtube.com/watch?v=6Rfn94k717U',
-    'http://www.youtube.com/watch?v=K48LhGk7gtk',
-    'http://www.youtube.com/watch?v=FEeTLopLkEo',
-    'http://www.youtube.com/watch?v=_waBFUg_oT8'
+    'https://www.youtube.com/watch?v=18uDutylDa4',
+    'https://www.youtube.com/watch?v=OUmFdTHTD8M',
+    'https://www.youtube.com/watch?v=XX30i6nC7ro',
+    'https://www.youtube.com/watch?v=QijH4UAqGD8',
+    'https://www.youtube.com/watch?v=MmfikLimeQ8',
+    'https://www.youtube.com/watch?v=Lp7E973zozc',
+    'https://www.youtube.com/watch?v=6Rfn94k717U',
+    'https://www.youtube.com/watch?v=K48LhGk7gtk',
+    'https://www.youtube.com/watch?v=FEeTLopLkEo',
+    'https://www.youtube.com/watch?v=_waBFUg_oT8'
   ]
   
   module.exports = {

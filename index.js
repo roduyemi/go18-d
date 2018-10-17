@@ -3,9 +3,8 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
-const API_KEY = 'tnHYF9zBR9Kuv2QWa6n5o2mFS1xMjA64';
 
-const { womenPioneers, quotes, videos } = require('./data')
+const { womenPioneers, quotes, videos, gifs } = require('./data')
 
 dotenv.config();
 
@@ -27,46 +26,40 @@ app.post('/', (req, res) => {
         client_id: process.env.SLACK_CLIENT_ID,
         client_secret: process.env.SLACK_CLIENT_SECRET,
         code: req.query.code
-    }};
-    const slackData = '';
-
-    const slackResponse = {
-      "text": slackData,
-      "attachments": [
-          {
-              // "fallback": "Required plain-text summary of the attachment.",
-              // "color": "#36a64f",
-              // "pretext": "Hope you feel inspired!",
-              // "author_name": "insposter",
-              // "image_url": "https://www.telegraph.co.uk/content/dam/Pets/spark/pets-at-home-2017/fluffy-white-puppy.jpg?imwidth=450",
-          }
-      ]
-    };
+    }
+  };
+  const slackResponse = {
+    // "text": 'Hope you feel inspired!',
+    "attachments": [
+        {
+            "fallback": "Required plain-text summary of the attachment.",
+            "color": "#ff9999",
+            "pre_text": 'Hope you feel inspired!',
+            "author_name": "insposter",
+            // "image_url": "https://cdn.dribbble.com/users/2050962/screenshots/4414477/dog.gif"
+        }
+    ]
+  };  
 
   if (text === 'quotes') {
-    res.send(_.sample(quotes)['quote']);
-  } else {
-    slackResponse.text = _.sample(videos)+"&t=1m";
+    // const slackResponse = {
+    //   "text" : _.sample(quotes)['quote'],
+    //   "author_name" : _.sample(quotes)['author']
+    // }
+    slackResponse.text = _.sample(quotes)['quote'];
+    slackResponse.attachments[0].author_name = _.sample(quotes)['author'];
     res.send(slackResponse);
+  } else if (text === 'videos') {
+    slackResponse.text = _.sample(videos);
+    res.send(slackResponse);
+  } else if (text === 'gif') {
+    slackResponse.attachments[0].image_url = 'https://cdn.dribbble.com/users/2050962/screenshots/4414477/dog.gif';
+    res.send(slackResponse);
+  } else {
+    axios.get(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${_.sample(womenPioneers)}`)
+    .then(response => {
+      slackResponse.text = response.data[3][0];
+      res.send(slackResponse);
+    })
   }
-
-  // axios.get(`https://api.giphy.com/v1/gifs/search?api_key=tnHYF9zBR9Kuv2QWa6n5o2mFS1xMjA64&q=cats&limit=1&offset=0&rating=G&lang=en`)
-  // .then(response => {
-  //    console.log('response', response);
-  // })
-
-  // const slackResponse = {
-  //   "attachments": [
-  //       {
-  //           "fallback": "Required plain-text summary of the attachment.",
-  //           "color": "#36a64f",
-  //           "pretext": "Hope you feel inspired!",
-  //           "author_name": "insposter",
-  //           "image_url": "https://www.telegraph.co.uk/content/dam/Pets/spark/pets-at-home-2017/fluffy-white-puppy.jpg?imwidth=450",
-  //       }
-  //   ]
-  // };
-
-
-  // res.send(slackResponse);
 });
