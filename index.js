@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
+const API_KEY = 'tnHYF9zBR9Kuv2QWa6n5o2mFS1xMjA64';
 
 const { womenPioneers, quotes, videos } = require('./data')
 
@@ -49,4 +50,23 @@ app.post('/', (req, res) => {
     res.send(slackResponse);
   }
 
+  // axios.get(`https://api.giphy.com/v1/gifs/search?api_key=tnHYF9zBR9Kuv2QWa6n5o2mFS1xMjA64&q=cats&limit=1&offset=0&rating=G&lang=en`)
+  // .then(response => {
+  //    console.log('response', response);
+  // })
+
+  // const slackResponse = {
+  //   "attachments": [
+  //       {
+  //           "fallback": "Required plain-text summary of the attachment.",
+  //           "color": "#36a64f",
+  //           "pretext": "Hope you feel inspired!",
+  //           "author_name": "insposter",
+  //           "image_url": "https://www.telegraph.co.uk/content/dam/Pets/spark/pets-at-home-2017/fluffy-white-puppy.jpg?imwidth=450",
+  //       }
+  //   ]
+  // };
+
+
+  // res.send(slackResponse);
 });
