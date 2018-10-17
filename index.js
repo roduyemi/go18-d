@@ -1,43 +1,40 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const axios = require('axios');
+const bodyParser = require('body-parser');
 
 dotenv.config();
 
 const app = express();
 
-app.use(express.json())
+// app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = 8080;
-
-const allowCrossDomain = (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-  res.header('Access-Control-Allow-Headers', 'Content-Type')
-  next();
-}
-
-app.use(allowCrossDomain)
 
 app.listen(port, () => console.log(`imposter listening on ${port}`));
 
 app.post('/', (req, res) => {
-  console.log('body', JSON.stringify(req.body));
+  console.log('body', req.body);
+  const { text } = req.body;
   const data = {
     form: {
         client_id: process.env.SLACK_CLIENT_ID,
         client_secret: process.env.SLACK_CLIENT_SECRET,
         code: req.query.code
     }};
-    res.send('hi')
-  // axios.post('https://slack.com/api/oauth.access', data, (error, response, body) => {
-      
-  //     if (!error) {
-          
-  //     console.log('response', JSON.stringify(response.body));
-  //     let token = JSON.parse(body).access_token;
-  //     let team = JSON.parse(body).team.domain;
-  //     res.redirect('http://' +team+ '.slack.com');
-  //     }
-  // });
+
+  const slackResponse = {
+    "attachments": [
+        {
+            "fallback": "Required plain-text summary of the attachment.",
+            "color": "#36a64f",
+            "pretext": "Hope you feel inspired!",
+            "author_name": "insposter",
+            "image_url": "https://www.telegraph.co.uk/content/dam/Pets/spark/pets-at-home-2017/fluffy-white-puppy.jpg?imwidth=450",
+        }
+    ]
+  };
+  res.send(slackResponse);
 });
