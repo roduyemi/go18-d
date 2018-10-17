@@ -1,6 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const axios = require('axios');
+const _ = require('lodash');
+const fetch = require('node-fetch');
+
+const { womenPioneers, quotes, videos } = require('./data')
 
 dotenv.config();
 
@@ -29,15 +32,8 @@ app.post('/', (req, res) => {
         client_secret: process.env.SLACK_CLIENT_SECRET,
         code: req.query.code
     }};
-    res.send('hi')
-  // axios.post('https://slack.com/api/oauth.access', data, (error, response, body) => {
-      
-  //     if (!error) {
-          
-  //     console.log('response', JSON.stringify(response.body));
-  //     let token = JSON.parse(body).access_token;
-  //     let team = JSON.parse(body).team.domain;
-  //     res.redirect('http://' +team+ '.slack.com');
-  //     }
-  // });
+
+  res.send(fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${_.sample(womenPioneers)}`)
+    .then(res => res.json())
+    .then(console.log))
 });
