@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@slack/client": "^4.8.0",
+    "@slack/events-api": "^2.1.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",

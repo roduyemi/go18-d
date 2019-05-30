@@ -25,7 +25,7 @@ const womenPioneers = [
     "Lixia Zhang"
   ]
 
-  const quotes = [
+  const quote = [
     {
       quote: "Make the most of yourself by fanning the tiny, inner sparks of possibility into flames of achievement.",
       author: "Golda Meir"
@@ -67,7 +67,7 @@ const womenPioneers = [
       author: "Chris Evert"
     }
   ]
-  const videos = [
+  const video = [
     'https://www.youtube.com/watch?v=18uDutylDa4',
     'https://www.youtube.com/watch?v=OUmFdTHTD8M',
     'https://www.youtube.com/watch?v=XX30i6nC7ro',
@@ -80,16 +80,17 @@ const womenPioneers = [
     'https://www.youtube.com/watch?v=_waBFUg_oT8'
   ]
 
-  const gifs = [
-    'https://giphy.com/gifs/advice-inspiring-X747o35tP1xxS',
-    'https://giphy.com/gifs/gina-rodriguez-hayley-atwell-janethevirgin-cWuqguqwbWVfq',
-    'https://giphy.com/gifs/birthday-serena-williams-u3xrWx0ni9EZy',
-    'https://giphy.com/gifs/rights-uO1rCvwqGJVYs',
-    'https://giphy.com/gifs/rights-uO1rCvwqGJVYs'
+  const gif = [
+    'https://media.giphy.com/media/X747o35tP1xxS/giphy.gif',
+    'https://media.giphy.com/media/cWuqguqwbWVfq/giphy.gif',
+    'https://media.giphy.com/media/u3xrWx0ni9EZy/giphy.gif',
+    'https://media.giphy.com/media/uO1rCvwqGJVYs/giphy.gif',
+    'https://media.giphy.com/media/wvx9pKKz90MeI/giphy.gif'
   ]
 
   module.exports = {
     womenPioneers,
-    quotes,
-    videos
+    quote,
+    video,
+    gif
   }
